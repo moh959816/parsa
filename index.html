@@ -1,0 +1,70 @@
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
+
+api_id = 28209250
+api_hash = "04591eb2063739551aa1841a7a4c6548"
+bot_token = "7301001227:AAFY-8nZbtBRD6vccndyK-kU-no1Ah7jLLA"
+
+channel_username = "eviza1404"  # فقط نام کانال، بدون @
+admin_id = 8112253241           # آیدی عددی شما
+
+app = Client("ali_member_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
+
+@app.on_message(filters.private & ~filters.bot)
+async def handle_all_messages(client, message: Message):
+    user_id = message.from_user.id
+    print("📥 پیام دریافت شد از:", user_id)
+
+    # بررسی عضویت در کانال
+    try:
+        member = await client.get_chat_member(channel_username, user_id)
+        if member.status not in ["member", "administrator", "creator"]:
+            raise Exception("عضو نیست")
+    except:
+        await message.reply(
+            "❌ برای استفاده از ربات، ابتدا در کانال ما عضو شوید:\n\n"
+            "📢 https://t.me/eviza1404",
+            reply_markup=InlineKeyboardMarkup([
+                [InlineKeyboardButton("📢 عضویت در کانال", url="https://t.me/eviza1404")]
+            ])
+        )
+        return
+
+    # فقط اگر پیام /start بود، پیام خوش‌آمد بده
+    if message.text == "/start":
+        await message.reply(
+            "🟢 *خوش آمدید!*\n\n"
+            "به *ربات معلومات ویزای ایران* خوش آمدید.\nاز دکمه‌های زیر استفاده کنید:",
+            reply_markup=InlineKeyboardMarkup([
+                [InlineKeyboardButton("✅ بررسی وضعیت ویزا", url="https://evisatraveller.mfa.ir/fa/request/status/")],
+                [InlineKeyboardButton("📢 کانال ما", url="https://t.me/eviza1404")],
+                [InlineKeyboardButton("💬 گروه بحث و سوالات", url="https://t.me/Evisa1404")]
+            ]),
+            parse_mode="Markdown"
+        )
+        return
+
+    # اگر پیام عادی بود، به ادمین بفرست
+    fwd = await message.forward(admin_id)
+    await client.send_message(
+        admin_id,
+        f"👤 پیام از: {message.from_user.first_name}\n🆔 {message.from_user.id}\n✉️ برای پاسخ، روی این پیام ریپلای بزن.",
+        reply_to_message_id=fwd.id
+    )
+
+@app.on_message(filters.private & filters.reply & filters.user(admin_id))
+async def reply_to_user(client, message: Message):
+    if not message.reply_to_message or not message.reply_to_message.forward_from:
+        await message.reply("⚠️ لطفاً به پیام کاربر ریپلای کنید.")
+        return
+
+    user_id = message.reply_to_message.forward_from.id
+
+    try:
+        await client.send_message(user_id, f"📩 پاسخ ادمین:\n\n{message.text}")
+        await message.reply("✅ پیام شما به کاربر ارسال شد.")
+    except:
+        await message.reply("⚠️ ارسال پیام به کاربر ممکن نشد.")
+
+print("🚀 ربات در حال اجرا است... لطفاً /start را در تلگرام بفرستید.")
+app.run()
