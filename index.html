@@ -2,63 +2,1216 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>خدمات آنلاین پاسپورت - محمد پارسا</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سیستم لیست قبولی لاتری آمریکا ۲۰۲۷ - عکاسی دیجیتالی پارسا</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      font-family: Tahoma, sans-serif;
-      background: #f2f2f2;
+    :root {
+      --primary-color: #00ffd5;
+      --secondary-color: #00ff95;
+      --text-color: #fff;
+      --bg-color: linear-gradient(135deg, #0f0f0f, #1a1a2e, #0d7377);
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --card-shadow: rgba(0, 255, 170, 0.4);
+      --header-bg: rgba(10, 15, 30, 0.8);
+      --font-size: 16px;
+    }
+
+    .light-theme {
+      --primary-color: #00876a;
+      --secondary-color: #009e6c;
+      --text-color: #333;
+      --bg-color: linear-gradient(135deg, #e6f7ff, #c1e3ff, #a0d6ff);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --card-shadow: rgba(0, 135, 90, 0.3);
+      --header-bg: rgba(255, 255, 255, 0.9);
+    }
+
+    .font-small {
+      --font-size: 14px;
+    }
+
+    .font-medium {
+      --font-size: 16px;
+    }
+
+    .font-large {
+      --font-size: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    body {
+      font-family: "Vazirmatn", sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      text-align: center;
+      padding: 20px;
+      transition: all 0.3s ease;
+      min-height: 100vh;
+      font-size: var(--font-size);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    header {
+      background: var(--header-bg);
+      padding: 20px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      text-shadow: 0 0 15px var(--primary-color), 0 0 30px var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .welcome-message {
+      background: rgba(0, 255, 170, 0.1);
+      padding: 15px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      border: 1px solid var(--primary-color);
+    }
+
+    .welcome-message h2 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .login-form {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: right;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--primary-color);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-color);
+      font-family: "Vazirmatn", sans-serif;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 50px;
+      background: var(--primary-color);
+      color: #000;
+      font-family: "Vazirmatn", sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 255, 170, 0.3);
+    }
+
+    .password-note {
+      margin-top: 15px;
+      padding: 10px;
+      background: rgba(255, 204, 0, 0.1);
+      border-radius: 10px;
+      border: 1px solid #ffcc00;
+      color: #ffcc00;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 45px 12px 15px;
+      border: none;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-color);
+      font-family: "Vazirmatn", sans-serif;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary-color);
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filter-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50px;
+      background: rgba(0, 255, 170, 0.2);
+      color: var(--text-color);
+      font-family: "Vazirmatn", sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid var(--primary-color);
+    }
+
+    .filter-buttons button:hover, .filter-buttons button.active {
+      background: rgba(0, 255, 170, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    .stat-box {
+      background: var(--card-bg);
+      padding: 15px;
+      border-radius: 15px;
+      min-width: 150px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-box h3 {
+      color: var(--primary-color);
+      margin-bottom: 5px;
+      font-size: 1.2rem;
+    }
+
+    .stat-box p {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .list-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .person {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card-bg);
+      padding: 16px 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px var(--card-shadow);
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .person:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 28px var(--card-shadow);
+    }
+
+    .name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--secondary-color);
+      text-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      color: var(--secondary-color);
+    }
+
+    .status span {
+      background: rgba(0, 255, 149, 0.2);
+      padding: 5px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--secondary-color);
+      text-shadow: 0 0 10px var(--secondary-color);
+    }
+
+    .tick {
+      color: #00aaff;
+      font-size: 1.4rem;
+      text-shadow: 0 0 15px #00aaff, 0 0 25px #00aaff;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .pagination button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(0, 255, 170, 0.2);
+      color: var(--text-color);
+      font-family: "Vazirmatn", sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid var(--primary-color);
+    }
+
+    .pagination button:hover {
+      background: rgba(0, 255, 170, 0.4);
+    }
+
+    .pagination button.active {
+      background: var(--primary-color);
+      color: #000;
+      font-weight: bold;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: var(--card-bg);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 100;
+    }
+
+    .settings-toggle {
+      position: fixed;
+      bottom: 80px;
+      left: 20px;
+      background: var(--card-bg);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 100;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      line-height: 1.8;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
       text-align: center;
     }
-    .container {
-      background: white;
-      max-width: 600px;
-      margin: 30px auto;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+    footer p {
+      margin-bottom: 15px;
     }
-    h1 {
-      color: #c69c6d;
+
+    .contact-info {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
-    a {
-      display: block;
-      margin: 10px 0;
+
+    .contact-card {
+      background: var(--card-bg);
+      padding: 15px;
+      border-radius: 15px;
+      min-width: 200px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .contact-card a {
+      color: var(--secondary-color);
       text-decoration: none;
-      color: white;
-      background: #4CAF50;
-      padding: 12px;
-      border-radius: 8px;
-      transition: 0.3s;
+      display: block;
+      margin: 5px 0;
     }
-    a:hover {
-      background: #45a049;
+
+    .contact-card a:hover {
+      text-decoration: underline;
     }
-    .footer {
-      margin-top: 30px;
-      color: #666;
-      font-size: 14px;
+
+    .instructions {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 15px;
+      margin: 30px 0;
+      text-align: right;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .instructions h2 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .instructions ol {
+      text-align: right;
+      padding-right: 20px;
+      line-height: 2;
+    }
+
+    .instructions li {
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      background: rgba(0, 255, 170, 0.3);
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: 1px solid var(--primary-color);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 0 30px rgba(0, 255, 170, 0.5);
+      border: 1px solid var(--primary-color);
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .modal-header h2 {
+      color: var(--primary-color);
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      color: var(--text-color);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .settings-group {
+      margin-bottom: 20px;
+      text-align: right;
+    }
+
+    .settings-group h3 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .theme-options, .font-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .theme-option, .font-option {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-color);
+      font-family: "Vazirmatn", sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .theme-option.active, .font-option.active {
+      background: var(--primary-color);
+      color: #000;
+      font-weight: bold;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-link {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-color);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      transform: translateY(-5px);
+      background: var(--primary-color);
+      color: #000;
+    }
+
+    .terms {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      text-align: right;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .terms h4 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .version-info {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .person {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+      
+      .stats {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .stat-box {
+        width: 100%;
+        max-width: 250px;
+      }
+      
+      .controls {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .filter-buttons {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .contact-info {
+        flex-direction: column;
+      }
+      
+      .theme-options, .font-options {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .subtitle {
+        font-size: 1rem;
+      }
+      
+      .stat-box {
+        min-width: unset;
+        width: 100%;
+      }
+      
+      .contact-card {
+        width: 100%;
+      }
+      
+      .social-links {
+        gap: 10px;
+      }
+      
+      .social-link {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🌐 خدمات آنلاین پاسپورت</h1>
-    <p>با مدیریت محمد پارسا از هرات، افغانستان</p>
-
-    <a href="https://www.instagram.com/parsapassport001?igsh=OXZ4dHZraHhnZDNs">📱 صفحه اینستاگرام</a>
-    <a href="https://www.facebook.com/share/16eWCGCSgn/">📘 صفحه فیسبوک</a>
-    <a href="https://www.facebook.com/share/1C28Db9vyd/">👥 گروه فیسبوک</a>
-    <a href="https://t.me/Mohammadparsa001">💬 تلگرام محمد پارسا</a>
-
-    <p style="margin-top: 20px;">📞 واتساپ رسمی: 0791979726 / 0781951747</p>
+    <header>
+      <h1>✅ لیست قبولی لاتری آمریکا ۲۰۲۷</h1>
+      <p class="subtitle">سیستم پیگیری وضعیت متقاضیان لاتری آمریکا - عکاسی دیجیتالی پارسا</p>
+      
+      <div class="welcome-message">
+        <h2>به سیستم دیوی لاتری آمریکا 2027 خوش آمدین</h2>
+        <p>آخرین آپدیت 1404/06/25</p>
+        <p>اینシステム خاص به مشتریان عکاسی دیجیتالی پارسا میباشد</p>
+      </div>
+      
+      <div class="login-form" id="loginForm">
+        <div class="form-group">
+          <label for="username">نام کاربری</label>
+          <input type="text" id="username" placeholder="Mohammad Parsa">
+        </div>
+        <div class="form-group">
+          <label for="password">پسورد</label>
+          <input type="password" id="password" placeholder="پسورد را وارد کنید">
+        </div>
+        <button class="btn" id="loginBtn">ورود به سیستم</button>
+        
+        <div class="password-note">
+          <p>لطفا جهت وارد شدن در خانه اول Mohammad Parsa بنویسید</p>
+          <p>در خانه دوم پسورد parsa95 را وارد کنید</p>
+          <p>در صورت مشکل با آیدی زیر تماس بگیرید: @alomrparsa001</p>
+        </div>
+      </div>
+      
+      <div class="controls" id="mainContent" style="display: none;">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="جستجو بر اساس نام...">
+        </div>
+        
+        <div class="filter-buttons">
+          <button data-filter="all" class="active">همه</button>
+          <button data-filter="individual">انفرادی</button>
+          <button data-filter="family">فامیلی</button>
+        </div>
+      </div>
+      
+      <div class="stats" id="statsSection" style="display: none;">
+        <div class="stat-box">
+          <h3>تعداد کل</h3>
+          <p id="totalCount">79</p>
+        </div>
+        <div class="stat-box">
+          <h3>انفرادی</h3>
+          <p id="individualCount">72</p>
+        </div>
+        <div class="stat-box">
+          <h3>فامیلی</h3>
+          <p id="familyCount">7</p>
+        </div>
+      </div>
+    </header>
     
-    <div class="footer">
-      شما با فالو کردن ما را بسیار خوشحال می‌کنید 💖<br>
-      ما برایتان با انرژی، معلومات پاسپورت، تذکره الکترونیکی و ویزای ایران را جمع‌آوری و نشر می‌کنیم.
+    <div class="instructions" id="instructionsSection" style="display: none;">
+      <h2>✅ راهنمای استفاده از سیستم</h2>
+      <ol>
+        <li>این سیستم فقط به کسانی ساخته شده که خود را در عکاسی دیجیتالی پارسا به لاتری ثبت کرده اند.</li>
+        <li>برای بررسی وضعیت خود، نام و تخلص خود را در بخش جستجو وارد کنید.</li>
+        <li>اگر نام شما در لیست نمایش داده شود، به معنای قبولی در لاتری می‌باشد.</li>
+        <li>در صورت عدم وجود نام، می‌توانید با اطلاعات تماس زیر ارتباط برقرار کنید.</li>
+      </ol>
+    </div>
+    
+    <div class="list-container" id="listContainer" style="display: none;">
+      <!-- افراد به صورت پویا نمایش داده می‌شوند -->
+    </div>
+    
+    <div class="pagination" id="pagination" style="display: none;">
+      <!-- صفحه‌بندی به صورت پویا ایجاد می‌شود -->
+    </div>
+    
+    <footer id="footerSection" style="display: none;">
+      <p>© ۲۰۲۷ - سیستم لیست‌گیری لاتری آمریکا. تمام حقوق محفوظ است.</p>
+      <p>تهیه و ترتیب توسط محمد پارسا ✔️</p>
+      
+      <div class="contact-info">
+        <div class="contact-card">
+          <h3>📱 تلگرام رسمی</h3>
+          <a href="https://t.me/Mohammadparsa001" target="_blank">@Mohammadparsa001</a>
+        </div>
+        
+        <div class="contact-card">
+          <h3>📞 واتساپ رسمی</h3>
+          <p>0791979726</p>
+          <p>0781951747</p>
+        </div>
+        
+        <div class="contact-card">
+          <h3>📌 آدرس جهت ثبت لاتری</h3>
+          <p>عکاسی دیجیتالی پارسا جاده قومندانی امنیه</p>
+          <p>روبروی لیسه جامی یا روبروی شعبه پاسپورت سابق</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  
+  <div class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </div>
+
+  <div class="settings-toggle" id="settingsToggle">
+    <i class="fas fa-cog"></i>
+  </div>
+
+  <!-- Modal تنظیمات -->
+  <div class="modal" id="settingsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>تنظیمات سیستم</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      
+      <div class="settings-group">
+        <h3>انتخاب تم</h3>
+        <div class="theme-options">
+          <button class="theme-option active" data-theme="dark">تم تیره</button>
+          <button class="theme-option" data-theme="light">تم روشن</button>
+        </div>
+      </div>
+      
+      <div class="settings-group">
+        <h3>اندازه فونت</h3>
+        <div class="font-options">
+          <button class="font-option" data-font="small">کوچک</button>
+          <button class="font-option active" data-font="medium">متوسط</button>
+          <button class="font-option" data-font="large">بزرگ</button>
+        </div>
+      </div>
+      
+      <div class="settings-group">
+        <h3>ما را در شبکه های اجتماعی دنبال کنید</h3>
+        <div class="social-links">
+          <a href="https://t.me/Mohammadparsa001" class="social-link" target="_blank">
+            <i class="fab fa-telegram"></i>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=93791979726" class="social-link" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://instagram.com/haidari9165?igshid=YTQwZjQ0NmI0OA==" class="social-link" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@mohammad_parsa_001?_t=8ppKm2TEFJI&_r=1" class="social-link" target="_blank">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100041860717559" class="social-link" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="settings-group">
+        <h3>قوانین و ضوابط</h3>
+        <div class="terms">
+          <h4>شرایط استفاده از سیستم</h4>
+          <p>1. این سیستم فقط برای مشتریان عکاسی دیجیتالی پارسا طراحی شده است.</p>
+          <p>2. هرگونه استفاده غیرمجاز از این سیستم پیگرد قانونی دارد.</p>
+          <p>3. اطلاعات وارد شده در این سیستم محرمانه تلقی شده و نزد ما محفوظ خواهد ماند.</p>
+          <p>4. کاربر موظف است از اطلاعات خود محافظت کرده و آن را در اختیار دیگران قرار ندهد.</p>
+          <p>5. در صورت مشاهده هرگونه مشکل در سیستم، لطفاً با پشتیبانی تماس بگیرید.</p>
+        </div>
+      </div>
+      
+      <div class="version-info">
+        <p>ورژن سایت: 1.8.7.5</p>
+        <p>تهیه و ترتیب: محمد پارسا</p>
+        <p>موقعیت: هرات افغانستان</p>
+      </div>
     </div>
   </div>
+
+  <script>
+    // داده‌های نمونه با تمام اسامی
+    const peopleData = [
+      { name: "خلیل احمد محمدی", status: "individual" },
+      { name: "سهیلا عزیزی", status: "individual" },
+      { name: "محمد رفیع بهادری", status: "individual" },
+      { name: "سمیه رادمنش", status: "family" },
+      { name: "نازنین ایوبی", status: "individual" },
+      { name: "وزیر احمد اکبری", status: "family" },
+      { name: "سارا مهندس‌زاده", status: "family" },
+      { name: "وکیل احمد طاهری", status: "family" },
+      { name: "علی سینا وزیری", status: "family" },
+      { name: "جمعه گل حقدوست", status: "individual" },
+      { name: "مریم عزیزی", status: "individual" },
+      { name: "ع عبدالقدیر بهرامی", status: "individual" },
+      { name: "سدیس بارکزی", status: "individual" },
+      { name: "سعد الدین نوری", status: "individual" },
+      { name: "مهدی نصیری", status: "individual" },
+      { name: "محمد محمدی", status: "individual" },
+      { name: "عبدالرحیم ملکی", status: "individual" },
+      { name: "فردین جان غلامی", status: "individual" },
+      { name: "مسعود سلطانی", status: "individual" },
+      { name: "وزیر احمد کاکری", status: "individual" },
+      { name: "کریمه کرامت", status: "family" },
+      { name: "مسعود رستمی", status: "individual" },
+      { name: "علی رضا حقدوست", status: "individual" },
+      { name: "مجتبی رضایی", status: "individual" },
+      { name: "عبدالقدیر نورانی", status: "individual" },
+      { name: "ذکیه نامه طاهری", status: "individual" },
+      { name: "بی بی گل صادقی", status: "individual" },
+      { name: "زمری نورزائی", status: "family" },
+      { name: "اسماعیل احمدی", status: "individual" },
+      { name: "الیاس امانی", status: "individual" },
+      { name: "معراج بارکزی", status: "individual" },
+      { name: "وزیر احمد کاکری", status: "individual" },
+      { name: "نوید نورزی", status: "individual" },
+      { name: "محمد قاسمی", status: "individual" },
+      { name: "حفیظ الله طاهری", status: "individual" },
+      { name: "عبدالقدوس رسولی", status: "individual" },
+      { name: "عبدالحی محمدی", status: "individual" },
+      { name: "عبدالحق محمدی", status: "individual" },
+      { name: "شکیلا جامی", status: "individual" },
+      { name: "سید احمد قتالی نورزائی", status: "individual" },
+      { name: "زهرا علیزاده", status: "individual" },
+      { name: "کبرا کریمی", status: "individual" },
+      { name: "احسان الله زوری", status: "individual" },
+      { name: "رامین حبیبی", status: "individual" },
+      { name: "وزیر نظامی", status: "individual" },
+      { name: "جواد طاهری", status: "family" },
+      { name: "ستار نورزائی", status: "individual" },
+      { name: "نظر محمد علیزاده", status: "individual" },
+      { name: "عالم علیزاده", status: "individual" },
+      { name: "عبدالکریم عثمانی", status: "individual" },
+      { name: "غلام صدیق احمدی", status: "individual" },
+      { name: "نذیر سعیدی", status: "individual" },
+      { name: "عبدالشکور سعیدی", status: "individual" },
+      { name: "مریم رحیمی", status: "individual" },
+      { name: "سهیل مروی", status: "individual" },
+      { name: "وکیل احمد محمدی", status: "individual" },
+      { name: "محب الله عظیمی", status: "individual" },
+      { name: "عیدی محمد علیزاده", status: "individual" },
+      { name: "فرهاد کریمی", status: "individual" },
+      { name: "جواد محمدی", status: "individual" },
+      { name: "غلام سخی جیلانی", status: "individual" },
+      { name: "علی احمد محمدی", status: "individual" },
+      { name: "ع عبدالبصیر کریمی", status: "family" },
+      { name: "نصیر احمد جلیلی", status: "individual" },
+      { name: "مزمل حقدوست", status: "individual" },
+      { name: "سهیلا سلطانی", status: "individual" },
+      { name: "جلیل احمد کاکری", status: "individual" },
+      { name: "احمد علیزاده", status: "individual" },
+      { name: "شیر احمد جهانی", status: "individual" },
+      { name: "قائم حسینی", status: "individual" },
+      { name: "حسین سادات", status: "individual" },
+      { name: "غلام مودود عثمانی", status: "individual" },
+      { name: "یونس قادری", status: "individual" },
+      { name: "نیک بخت موسوی", status: "individual" },
+      { name: "قادر حیدری", status: "family" },
+      { name: "محمد رضا خاوری", status: "family" },
+      { name: "غلام حسن حسنی", status: "individual" },
+      { name: "حسیبا حیدری", status: "family" },
+      { name: "مصطفی حسنی", status: "family" }
+    ];
+
+    // متغیرهای حالت
+    let currentPage = 1;
+    const itemsPerPage = 10;
+    let filteredData = [...peopleData];
+    let currentFilter = 'all';
+
+    // عناصر DOM
+    const listContainer = document.getElementById('listContainer');
+    const paginationElement = document.getElementById('pagination');
+    const searchInput = document.getElementById('searchInput');
+    const themeToggle = document.getElementById('themeToggle');
+    const settingsToggle = document.getElementById('settingsToggle');
+    const settingsModal = document.getElementById('settingsModal');
+    const totalCountElement = document.getElementById('totalCount');
+    const individualCountElement = document.getElementById('individualCount');
+    const familyCountElement = document.getElementById('familyCount');
+    const loginForm = document.getElementById('loginForm');
+    const mainContent = document.getElementById('mainContent');
+    const statsSection = document.getElementById('statsSection');
+    const instructionsSection = document.getElementById('instructionsSection');
+    const footerSection = document.getElementById('footerSection');
+    const loginBtn = document.getElementById('loginBtn');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const closeModalButtons = document.querySelectorAll('.close-modal');
+    const themeOptions = document.querySelectorAll('.theme-option');
+    const fontOptions = document.querySelectorAll('.font-option');
+
+    // اطلاعات ورود
+    const correctUsername = "Mohammad Parsa";
+    const correctPassword = "parsa95"; // پسورد تصحیح شده
+
+    // اعتبارسنجی ورود
+    function validateLogin() {
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value.trim();
+      
+      if (username === correctUsername && password === correctPassword) {
+        return true;
+      }
+      
+      alert("نام کاربری یا پسورد اشتباه است. لطفاً دوباره تلاش کنید.");
+      return false;
+    }
+
+    // نمایش بخش اصلی پس از ورود موفق
+    function showMainContent() {
+      loginForm.style.display = 'none';
+      mainContent.style.display = 'flex';
+      statsSection.style.display = 'flex';
+      instructionsSection.style.display = 'block';
+      listContainer.style.display = 'grid';
+      paginationElement.style.display = 'flex';
+      footerSection.style.display = 'block';
+      
+      applyFilter('all');
+    }
+
+    // به روزرسانی آمار
+    function updateStats() {
+      totalCountElement.textContent = peopleData.length;
+      individualCountElement.textContent = peopleData.filter(person => person.status === 'individual').length;
+      familyCountElement.textContent = peopleData.filter(person => person.status === 'family').length;
+    }
+
+    // اعمال فیلتر
+    function applyFilter(filterType, searchTerm = '') {
+      currentFilter = filterType;
+      filteredData = peopleData.filter(person => {
+        const matchesFilter = filterType === 'all' || person.status === filterType;
+        const matchesSearch = person.name.includes(searchTerm);
+        return matchesFilter && matchesSearch;
+      });
+      
+      currentPage = 1;
+      renderList();
+      renderPagination();
+    }
+
+    // رندر لیست
+    function renderList() {
+      listContainer.innerHTML = '';
+      
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const paginatedData = filteredData.slice(startIndex, endIndex);
+      
+      if (paginatedData.length === 0) {
+        listContainer.innerHTML = '<div class="no-result">نتیجه‌ای یافت نشد</div>';
+        return;
+      }
+      
+      paginatedData.forEach(person => {
+        const personElement = document.createElement('div');
+        personElement.className = 'person';
+        personElement.innerHTML = `
+          <div class="name">${person.name}</div>
+          <div class="status">
+            <span>در لیست گرفته شد (${person.status === 'individual' ? 'انفرادی' : 'فامیلی'})</span>
+            <div class="tick">✅</div>
+          </div>
+        `;
+        listContainer.appendChild(personElement);
+      });
+    }
+
+    // رندر صفحه‌بندی
+    function renderPagination() {
+      paginationElement.innerHTML = '';
+      const pageCount = Math.ceil(filteredData.length / itemsPerPage);
+      
+      if (pageCount <= 1) return;
+      
+      // دکمه قبلی
+      if (currentPage > 1) {
+        const prevButton = document.createElement('button');
+        prevButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        prevButton.addEventListener('click', () => {
+          currentPage--;
+          renderList();
+          renderPagination();
+        });
+        paginationElement.appendChild(prevButton);
+      }
+      
+      // شماره صفحات
+      for (let i = 1; i <= pageCount; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        pageButton.className = currentPage === i ? 'active' : '';
+        pageButton.addEventListener('click', () => {
+          currentPage = i;
+          renderList();
+          renderPagination();
+        });
+        paginationElement.appendChild(pageButton);
+      }
+      
+      // دکمه بعدی
+      if (currentPage < pageCount) {
+        const nextButton = document.createElement('button');
+        nextButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        nextButton.addEventListener('click', () => {
+          currentPage++;
+          renderList();
+          renderPagination();
+        });
+        paginationElement.appendChild(nextButton);
+      }
+    }
+
+    // تغییر تم
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+      const icon = themeToggle.querySelector('i');
+      if (document.body.classList.contains('light-theme')) {
+        icon.className = 'fas fa-sun';
+        // ذخیره در localStorage
+        localStorage.setItem('theme', 'light');
+      } else {
+        icon.className = 'fas fa-moon';
+        // ذخیره در localStorage
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // تغییر اندازه فونت
+    function changeFontSize(size) {
+      // حذف کلاس‌های فعلی
+      document.body.classList.remove('font-small', 'font-medium', 'font-large');
+      
+      // اضافه کردن کلاس جدید
+      document.body.classList.add(`font-${size}`);
+      
+      // ذخیره در localStorage
+      localStorage.setItem('fontSize', size);
+    }
+
+    // باز کردن modal تنظیمات
+    function openSettings() {
+      settingsModal.style.display = 'flex';
+    }
+
+    // بستن modal تنظیمات
+    function closeSettings() {
+      settingsModal.style.display = 'none';
+    }
+
+    // بارگذاری تنظیمات از localStorage
+    function loadSettings() {
+      // بارگذاری تم
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        themeToggle.querySelector('i').className = 'fas fa-sun';
+      }
+      
+      // بارگذاری اندازه فونت
+      const savedFontSize = localStorage.getItem('fontSize') || 'medium';
+      changeFontSize(savedFontSize);
+      
+      // علامت گذاری گزینه‌های فعال
+      document.querySelectorAll('.theme-option, .font-option').forEach(option => {
+        option.classList.remove('active');
+      });
+      
+      document.querySelector(`.theme-option[data-theme="${savedTheme || 'dark'}"]`).classList.add('active');
+      document.querySelector(`.font-option[data-font="${savedFontSize}"]`).classList.add('active');
+    }
+
+    // مقداردهی اولیه
+    function init() {
+      updateStats();
+      loadSettings();
+      
+      // اضافه کردن event listeners
+      document.querySelectorAll('.filter-buttons button').forEach(button => {
+        button.addEventListener('click', () => {
+          applyFilter(button.dataset.filter, searchInput.value);
+        });
+      });
+      
+      searchInput.addEventListener('input', () => {
+        applyFilter(currentFilter, searchInput.value);
+      });
+      
+      themeToggle.addEventListener('click', toggleTheme);
+      settingsToggle.addEventListener('click', openSettings);
+      
+      loginBtn.addEventListener('click', () => {
+        if (validateLogin()) {
+          showMainContent();
+        }
+      });
+      
+      // اجازه ورود با کلید Enter
+      passwordInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          if (validateLogin()) {
+            showMainContent();
+          }
+        }
+      });
+      
+      // بستن modal با کلیک روی دکمه بستن
+      closeModalButtons.forEach(button => {
+        button.addEventListener('click', closeSettings);
+      });
+      
+      // بستن modal با کلیک خارج از آن
+      settingsModal.addEventListener('click', (e) => {
+        if (e.target === settingsModal) {
+          closeSettings();
+        }
+      });
+      
+      // تغییر تم از طریق modal
+      themeOptions.forEach(option => {
+        option.addEventListener('click', () => {
+          const theme = option.dataset.theme;
+          
+          // حذف کلاس‌های فعال
+          themeOptions.forEach(opt => opt.classList.remove('active'));
+          // علامت گذاری گزینه انتخاب شده
+          option.classList.add('active');
+          
+          if (theme === 'light') {
+            document.body.classList.add('light-theme');
+            themeToggle.querySelector('i').className = 'fas fa-sun';
+            localStorage.setItem('theme', 'light');
+          } else {
+            document.body.classList.remove('light-theme');
+            themeToggle.querySelector('i').className = 'fas fa-moon';
+            localStorage.setItem('theme', 'dark');
+          }
+        });
+      });
+      
+      // تغییر اندازه فونت از طریق modal
+      fontOptions.forEach(option => {
+        option.addEventListener('click', () => {
+          const fontSize = option.dataset.font;
+          
+          // حذف کلاس‌های فعال
+          fontOptions.forEach(opt => opt.classList.remove('active'));
+          // علامت گذاری گزینه انتخاب شده
+          option.classList.add('active');
+          
+          changeFontSize(fontSize);
+        });
+      });
+    }
+
+    // راه‌اندازی برنامه
+    init();
+  </script>
 </body>
 </html>
