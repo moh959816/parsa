@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>لاتری آمریکا DV-2026 - ثبت نام رسمی</title>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    font-family: 'Vazirmatn', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    direction: rtl;
+  }
+  
+  .container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .header {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .header p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+  }
+  
+  .content {
+    padding: 40px 30px;
+  }
+  
+  .countdown-section {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .countdown-title {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .time-unit {
+    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+    border-radius: 15px;
+    padding: 20px 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .time-unit:hover {
+    transform: translateY(-5px);
+  }
+  
+  .time-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #e74c3c;
+    line-height: 1;
+  }
+  
+  .time-label {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-top: 8px;
+  }
+  
+  .features {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    background: #27ae60;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    flex-shrink: 0;
+  }
+  
+  .feature-icon::after {
+    content: "✓";
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .feature-text {
+    color: #2c3e50;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .contact-section {
+    text-align: center;
+    padding: 30px;
+    background: #ecf0f1;
+    border-radius: 15px;
+  }
+  
+  .contact-title {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  .contact-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .btn-whatsapp {
+    background: #25d366;
+    color: white;
+  }
+  
+  .btn-whatsapp:hover {
+    background: #128c7e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+  }
+  
+  .btn-telegram {
+    background: #0088cc;
+    color: white;
+  }
+  
+  .btn-telegram:hover {
+    background: #006699;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 136, 204, 0.3);
+  }
+  
+  .expert-info {
+    margin-top: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    border: 2px solid #e74c3c;
+  }
+  
+  .expert-info h3 {
+    color: #e74c3c;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .expert-info p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  
+  .badge {
+    display: inline-block;
+    background: #f39c12;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 480px) {
+    .countdown {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .time-value {
+      font-size: 2.5rem;
+    }
+    
+    .contact-buttons {
+      flex-direction: column;
+    }
+    
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>🗽 لاتری گرین کارت آمریکا 2026</h1>
+    <p>فرصت زندگی در ایالات متحده آمریکا</p>
+  </div>
+  
+  <div class="content">
+    <div class="countdown-section">
+      <h2 class="countdown-title">⏰ زمان باقی‌مانده تا شروع ثبت‌نام رسمی</h2>
+      
+      <div class="countdown" role="timer" aria-live="polite">
+        <div class="time-unit">
+          <div class="time-value" id="days">18</div>
+          <div class="time-label">روز</div>
+        </div>
+        <div class="time-unit">
+          <div class="time-value" id="hours">00</div>
+          <div class="time-label">ساعت</div>
+        </div>
+        <div class="time-unit">
+          <div class="time-value" id="minutes">00</div>
+          <div class="time-label">دقیقه</div>
+        </div>
+        <div class="time-unit">
+          <div class="time-value" id="seconds">00</div>
+          <div class="time-label">ثانیه</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="features">
+      <div class="feature-item">
+        <div class="feature-icon"></div>
+        <div class="feature-text">ثبت‌نام کاملاً قانونی و از طریق سایت رسمی وزارت خارجه آمریکا</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"></div>
+        <div class="feature-text">راهنمایی گام به گام و پشتیبانی تا اعلام نتایج</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"></div>
+        <div class="feature-text">بررسی رایگان شرایط واجد شرایط بودن شما</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"></div>
+        <div class="feature-text">تضمین ثبت‌نام صحیح و دریافت کد تأییدیه</div>
+      </div>
+    </div>
+    
+    <div class="contact-section">
+      <h3 class="contact-title">📞 همین حالا برای مشاوره رایگان تماس بگیرید</h3>
+      
+      <div class="contact-buttons">
+        <a href="https://wa.me/937919726" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+          💬 واتساپ: 0791979726
+        </a>
+        <a href="https://t.me/Mohammadparsa001" target="_blank" rel="noopener noreferrer" class="btn btn-telegram">
+          ✈️ تلگرام: @Mohammadparsa001
+        </a>
+      </div>
+      
+      <div class="expert-info">
+        <h3>👨‍💼 مشاور شما: محمد پارسا</h3>
+        <p>✅ بیش از 10 سال تجربه در امور مهاجرت</p>
+        <p>✅ صدها پرونده موفق ثبت‌نام لاتری</p>
+        <p>✅ آشنا با تمام جزئیات و نکات مهم</p>
+        <span class="badge">مشاور رسمی و معتمد</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const targetDate = new Date();
+  targetDate.setDate(targetDate.getDate() + 18);
+  
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+    
+    if (diff < 0) {
+      document.getElementById('days').textContent = '00';
+      document.getElementById('hours').textContent = '00';
+      document.getElementById('minutes').textContent = '00';
+      document.getElementById('seconds').textContent = '00';
+      clearInterval(interval);
+      return;
+    }
+    
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+    
+    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+  }
+  
+  const interval = setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+
+</body>
+</html>
